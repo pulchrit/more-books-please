@@ -8,7 +8,7 @@ export default class BestSellersListOptions extends React.Component {
         
         const nameButtons = this.props.listNames.map((name, index) =>  
             <button className="list-button" key={index}>
-                <Link to={`/topBooks/${encodeURIComponent(name.display_name)}`}>
+                <Link to={`/topBooks/${name.list_name_encoded}`}>
                         {name.display_name}
                 </Link>
             </button>
