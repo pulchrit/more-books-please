@@ -5,7 +5,7 @@ import BestSellersListOptions from './BestSellersListOptions';
 import TopBooksList from './TopBooksList';
 import Footer from './Footer';
 import config from './config';
-import {handleErrors} from './utilities';
+import { handleErrors } from './utilities.js';
 import '../css/App.css';
 
 
@@ -195,7 +195,10 @@ export default class App extends React.Component {
           exact
           path='/'
           render={ () => 
-            <BestSellersListOptions listNames={this.state.listNames}/>
+            <BestSellersListOptions 
+              listNames={this.state.listNames}
+              error={this.state.error}
+            />
           }
         />
 

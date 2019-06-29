@@ -15,6 +15,7 @@
     background-color: #30490A;
     border-color: #30490A;
     border-radius: 3px;
+    border-style: none;
     padding: 30px;
     margin: 10px;
     cursor: pointer;
@@ -41,7 +42,11 @@
 .directions {
     padding: 0 30px;
     margin-top: 0;
-    font-size: 1.1em;
-    letter-spacing: .65px;
+    font-size: 1.2em;
+    letter-spacing: .7px;
     line-height: 1.6;
+}
+
+.error {
+    color: red;
 }

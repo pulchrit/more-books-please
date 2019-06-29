@@ -1,7 +1,7 @@
 import React from 'react';
 import BookItem from './BookItem';
 import config from './config';
-import {handleErrors, toTitleCase} from '.utilities'; 
+import { handleErrors, toTitleCase } from './utilities.js'; 
 import '../css/TopBooksList.css';
 
 
@@ -33,10 +33,14 @@ const processTopBooksData = (data) => {
 export default class TopBooksList extends React.Component {
     
     state = {
-        topBooksByList: {}
+        topBooksByList: {
+            display_name: '',
+            books: []
+        },
+        error: null
     }
 
-    reviseTopBooksByList = (data) => {
+    reviseTopBooksByList = (data, topBooksByList) => {
         
         const isbnAndInfoUrl = Object.keys(data).map(key => {
           return {
@@ -45,9 +49,9 @@ export default class TopBooksList extends React.Component {
           }
         });
     
-        const revisedTopBooksByList = this.state.topBooksByList;
+        //const revisedTopBooksByList = this.state.topBooksByList;
         
-        revisedTopBooksByList.books.forEach(book => {
+        topBooksByList.books.forEach(book => {
             isbnAndInfoUrl.forEach(isbnObject => {
               if (isbnObject.isbn === book.primary_isbn10) {
                 book.open_library_url = isbnObject.info_url;
@@ -55,16 +59,16 @@ export default class TopBooksList extends React.Component {
             });
           });
     
-        return revisedTopBooksByList;
+        return topBooksByList;
     }
 
     // Get OpenLibrary urls, process data, add OpenLibrary urls to 
     // topBooksByList object and setState with this revised topBooksByList object.
-    getOpenLibraryUrls = () => {
+    getOpenLibraryUrls = (topBooksByList) => {
         
         const baseOpenLibraryUrl = 'https://openlibrary.org/api/books?bibkeys='
     
-        const isbnNumbers = this.state.topBooksByList.books.map(book => 
+        const isbnNumbers = topBooksByList.books.map(book => 
             `ISBN:${book.primary_isbn10}`)
             .join(',');
     
@@ -73,26 +77,31 @@ export default class TopBooksList extends React.Component {
         fetch(callOpenLibraryUrl)
             .then(handleErrors)
             .then(response => response.json())   
-            .then(data => this.reviseTopBooksByList(data))
-            .then(revisedTopBooksByList => this.setState({topBooksByList: revisedTopBooksByList}))
+            .then(data => this.reviseTopBooksByList(data, topBooksByList))
+            .then(topBooksByList => this.setState({topBooksByList}))
             .catch(error => this.setState({error: error.message}))
     }
 
     componentDidMount() {
         
-        // Get selected NTY best seller list data, process and set state.
+        console.log("Top Books component did mount ran");
+        // Get selected NTY best seller list data, process data into topBooksByList
+        // object, and pass that object to getOpenLibraryUrls function to call 
+        // the OpenLibrary API (which will then update the topBooksByList object 
+        // and setState for topBooksByList).
         const listName = this.props.match.params.listName
 
         const baseNYTUrl = 'https://api.nytimes.com/svc/books/v3/lists/current/';
     
-        const callNYTUrl = `${baseNYTUrl}${listName}?api-key=${config.API_KEY_NYT}`);
+        const callNYTUrl = `${baseNYTUrl}${listName}?api-key=${config.API_KEY_NYT}`;
       
         fetch(callNYTUrl)
             .then(handleErrors)
             .then(response => response.json())
-            .then(data => processTopBooksData(data))
+            .then(data => processTopBooksData(data) || data)
             // Use callback on setState to initiate OpenLibrary API call.
-            .then(topBooksByList => this.setState({topBooksByList}, this.getOpenLibraryUrls))
+            .then(topBooksByList => this.getOpenLibraryUrls(topBooksByList))
+            //.then(topBooksByList => this.setState({topBooksByList}, this.getOpenLibraryUrls))
             .catch(error => this.setState({ error }))
     }
 
@@ -106,26 +115,38 @@ export default class TopBooksList extends React.Component {
         const listObject = this.props.topBooksByList.find(list => 
             this.props.match.params.listName === list.display_name); */
         
+        console.log('topBooksByList from state: ', this.state.topBooksByList);
+
+        const {error} = this.state;
+
         const bookItems = this.state.topBooksByList.books.map((book) => {
             
             return (
-            <BookItem 
-                key={book.rank}
-                rank={book.rank}
-                title={book.title}
-                author={book.author}
-                description={book.description}
-                image={book.book_image}
-                url={book.open_library_url === '' ? book.amazon_product_url : book.open_library_url}
-            />
+                <BookItem 
+                    key={book.rank}
+                    rank={book.rank}
+                    title={book.title}
+                    author={book.author}
+                    description={book.description}
+                    image={book.book_image}
+                    url={book.open_library_url === '' ? book.amazon_product_url : book.open_library_url}
+                />
             )}
         );
         
         return (
-            <section className="top-books">
-                <h2 className="subhead-top-books">{listObject.display_name}</h2>
-                {bookItems}
-            </section>
+            <> 
+            {/* If there is an error, render it, otherwise 'display' an empty string. */}
+            {error ? <p className='error' role='alert'>{error.message}</p> : ''}
+
+            {this.state.topBooksByList.display_name === '' 
+                ? <p className='placeholder-text'>Gathering books...one moment please...</p>
+            
+                : <section className="top-books">
+                    <h2 className="subhead-top-books">{this.state.topBooksByList.display_name}</h2>
+                    {bookItems}
+                </section>}
+            </>
         );
     }
 }
