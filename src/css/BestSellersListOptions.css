@@ -1,0 +1,47 @@
+.best-sellers-list-options {
+    width: 90%;
+    max-width: 500px;
+    margin: 3% auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.subhead {
+    text-align: center; 
+    font-size: 1.3em;
+}
+
+.list-button {
+    background-color: #30490A;
+    border-color: #30490A;
+    border-radius: 3px;
+    padding: 30px;
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-button a:link,
+.list-button a:visited,
+.list-button a:hover,
+.list-button a:focus,
+.list-button a:active {
+    color: white;
+    font-family: 'Crimson Text', serif;
+    line-height: 1;
+    font-weight: 700;
+    font-size: 1.6em;
+    text-decoration: none;
+    margin: 0;
+}
+
+.directions {
+    padding: 0 30px;
+    margin-top: 0;
+    font-size: 1.1em;
+    letter-spacing: .65px;
+    line-height: 1.6;
+}

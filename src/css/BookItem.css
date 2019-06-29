@@ -1,0 +1,28 @@
+.book-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: space-around;
+    padding: 7px;
+    margin: 10px;
+    border: 1px solid  rgba(10, 34, 73, 0.8);
+    border-radius: 3px;
+}
+
+.book-cover {
+    align-self: center;
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+.book-details {
+    margin: 4px;
+    line-height: 1.2;
+}
+
+a.find-link {
+    font-size: 1em;
+    text-decoration: underline;
+    margin: 12px 4px 0 4px;
+    cursor: pointer;
+}

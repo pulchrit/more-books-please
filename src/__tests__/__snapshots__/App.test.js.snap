@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders UI as expected 1`] = `
+<main
+  className="app"
+>
+  <header
+    className="header"
+  >
+    <h1
+      className="headline"
+    >
+      More Books, Please
+    </h1>
+  </header>
+  <section
+    className="best-sellers-list-options"
+  >
+    <h2
+      className="subhead"
+    >
+      Find more food for your hungry little bookworms.
+    </h2>
+    <p
+      className="directions"
+    >
+      Choose from The New York Times Bestsellers Lists below to see the most recent best sellers in each children's book list.
+    </p>
+  </section>
+  <footer
+    className="footer"
+  >
+    <p
+      className="footer-copy"
+    >
+      <a
+        href="https://developer.nytimes.com"
+      >
+        Data provided by The New York Times
+      </a>
+    </p>
+    <p
+      className="footer-copy"
+    >
+      <a
+        className="main-a-style"
+        href="https://openlibrary.org/"
+      >
+        Data provided by OpenLibrary
+      </a>
+    </p>
+    <p
+      className="footer-copy"
+    >
+       ©2019 
+      <a
+        className="main-a-style"
+        href="mailto:pulchrit@gmail.com"
+      >
+        Melissa Lafranchise
+      </a>
+    </p>
+  </footer>
+</main>
+`;
