@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 import {BrowserRouter} from 'react-router-dom';
-import App from '../components/App';
+import Footer from '../components/Footer';
 
-describe ("App", () => {
+describe ("Footer", () => {
 
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <BrowserRouter>
-        <App />
+        <Footer /> 
       </BrowserRouter>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
@@ -19,7 +19,7 @@ describe ("App", () => {
     const tree = renderer
       .create(
         <BrowserRouter>
-          <App />
+            <Footer />
         </BrowserRouter>)
       .toJSON();
     expect(tree).toMatchSnapshot();

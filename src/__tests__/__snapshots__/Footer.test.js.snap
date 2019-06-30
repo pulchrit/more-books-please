@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders UI as expected 1`] = `
+<footer
+  className="footer"
+>
+  <p
+    className="footer-copy"
+  >
+    <a
+      href="https://developer.nytimes.com"
+    >
+      Data provided by The New York Times
+    </a>
+  </p>
+  <p
+    className="footer-copy"
+  >
+    <a
+      className="main-a-style"
+      href="https://openlibrary.org/"
+    >
+      Data provided by OpenLibrary
+    </a>
+  </p>
+  <p
+    className="footer-copy"
+  >
+     ©2019 
+    <a
+      className="main-a-style"
+      href="mailto:pulchrit@gmail.com"
+    >
+      Melissa Lafranchise
+    </a>
+  </p>
+</footer>
+`;
