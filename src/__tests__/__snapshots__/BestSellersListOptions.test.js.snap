@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BestSellersListOptions renders UI as expected 1`] = `
+<section
+  className="best-sellers-list-options"
+>
+  
+  <h2
+    className="subhead"
+  >
+    Find more food for your hungry little bookworms.
+  </h2>
+  <p
+    className="directions"
+  >
+    Choose from The New York Times Bestsellers Lists below to see the most recent best sellers in each children's book list.
+  </p>
+  <button
+    className="list-button"
+  >
+    <a
+      href="/topBooks/picture-books"
+      onClick={[Function]}
+    >
+      Children's Picture Books
+    </a>
+  </button>
+  <button
+    className="list-button"
+  >
+    <a
+      href="/topBooks/chapter-books"
+      onClick={[Function]}
+    >
+      Children's Chapter Books
+    </a>
+  </button>
+  <button
+    className="list-button"
+  >
+    <a
+      href="/topBooks/childrens-middle-grade"
+      onClick={[Function]}
+    >
+      Children's Middle Grade Books
+    </a>
+  </button>
+</section>
+`;

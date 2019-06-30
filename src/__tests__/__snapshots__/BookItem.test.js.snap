@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookItem renders UI as expected 1`] = `
+<section
+  className="book-card"
+>
+  <img
+    alt="The Wonderful Things You Will Be by Emily Winfield Martin"
+    className="book-cover"
+    src="https://s1.nyt.com/du/books/images/9780385376716.jpg"
+  />
+  <p
+    className="book-details"
+  >
+    Number: 1
+  </p>
+  <p
+    className="book-details"
+  >
+    The Wonderful Things You Will Be
+  </p>
+  <p
+    className="book-details"
+  >
+    By Emily Winfield Martin
+  </p>
+  <p
+    className="book-details"
+  >
+    A celebration of future possibilities.
+  </p>
+  <a
+    className="find-link"
+    href="https://openlibrary.org/books/OL26629977M/The_Wonderful_Things_You_Will_Be"
+  >
+    Find this book
+  </a>
+</section>
+`;

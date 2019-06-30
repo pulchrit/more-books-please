@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopBooksList renders UI as expected 1`] = `
+Array [
+  "",
+  <p
+    className="placeholder-text"
+  >
+    Gathering books...one moment please...
+  </p>,
+]
+`;

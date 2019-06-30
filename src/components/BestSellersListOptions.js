@@ -29,6 +29,5 @@ export default class BestSellersListOptions extends React.Component {
                     {nameButtons}
             </section>
         );
-    }
-    
+    } 
 }

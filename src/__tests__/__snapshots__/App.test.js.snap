@@ -16,6 +16,7 @@ exports[`App renders UI as expected 1`] = `
   <section
     className="best-sellers-list-options"
   >
+    
     <h2
       className="subhead"
     >

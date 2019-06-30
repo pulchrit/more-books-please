@@ -4,8 +4,6 @@ import config from './config';
 import { handleErrors, toTitleCase } from './utilities.js'; 
 import '../css/TopBooksList.css';
 
-
-
 const processTopBooksData = (data) => {
         
     const display_name = data.results.display_name;
@@ -30,6 +28,7 @@ const processTopBooksData = (data) => {
 }
 
 
+
 export default class TopBooksList extends React.Component {
     
     state = {
@@ -48,9 +47,7 @@ export default class TopBooksList extends React.Component {
             info_url: data[key].info_url
           }
         });
-    
-        //const revisedTopBooksByList = this.state.topBooksByList;
-        
+            
         topBooksByList.books.forEach(book => {
             isbnAndInfoUrl.forEach(isbnObject => {
               if (isbnObject.isbn === book.primary_isbn10) {
@@ -84,7 +81,6 @@ export default class TopBooksList extends React.Component {
 
     componentDidMount() {
         
-        console.log("Top Books component did mount ran");
         // Get selected NTY best seller list data, process data into topBooksByList
         // object, and pass that object to getOpenLibraryUrls function to call 
         // the OpenLibrary API (which will then update the topBooksByList object 
@@ -99,23 +95,11 @@ export default class TopBooksList extends React.Component {
             .then(handleErrors)
             .then(response => response.json())
             .then(data => processTopBooksData(data) || data)
-            // Use callback on setState to initiate OpenLibrary API call.
             .then(topBooksByList => this.getOpenLibraryUrls(topBooksByList))
-            //.then(topBooksByList => this.setState({topBooksByList}, this.getOpenLibraryUrls))
             .catch(error => this.setState({ error }))
     }
 
     render() {
-        // Find the Best Seller list to render based on the route parameter.
-        // The route parameter is given a value when the button is created 
-        // in BestSellersListOptions. You read that route parameter out of 
-        // match.params.listName.
-      /*   console.log("match object listname:", this.props.match.params.listName);
-        console.log("Top books from props/state:", this.props.topBooksByList);
-        const listObject = this.props.topBooksByList.find(list => 
-            this.props.match.params.listName === list.display_name); */
-        
-        console.log('topBooksByList from state: ', this.state.topBooksByList);
 
         const {error} = this.state;
 
@@ -136,16 +120,16 @@ export default class TopBooksList extends React.Component {
         
         return (
             <> 
-            {/* If there is an error, render it, otherwise 'display' an empty string. */}
-            {error ? <p className='error' role='alert'>{error.message}</p> : ''}
+                {/* If there is an error, render it, otherwise 'display' an empty string. */}
+                {error ? <p className='error' role='alert'>{error.message}</p> : ''}
 
-            {this.state.topBooksByList.display_name === '' 
-                ? <p className='placeholder-text'>Gathering books...one moment please...</p>
-            
-                : <section className="top-books">
-                    <h2 className="subhead-top-books">{this.state.topBooksByList.display_name}</h2>
-                    {bookItems}
-                </section>}
+                {this.state.topBooksByList.display_name === '' 
+                    ? <p className='placeholder-text'>Gathering books...one moment please...</p>
+                
+                    : <section className="top-books">
+                        <h2 className="subhead-top-books">{this.state.topBooksByList.display_name}</h2>
+                        {bookItems}
+                    </section>}
             </>
         );
     }
