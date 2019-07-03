@@ -55,7 +55,7 @@ export default class App extends React.Component {
         {/* Initial view route. Shows list of best seller lists. */}
         <Route 
           exact
-          path='/'
+          path="/"
           render={ () => 
             <BestSellersListOptions 
               listNames={this.state.listNames}
