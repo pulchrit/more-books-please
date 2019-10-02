@@ -81,7 +81,7 @@ export default class TopBooksList extends React.Component {
 
     componentDidMount() {
         
-        // Get selected NTY best seller list data, process data into topBooksByList
+        // Get selected NYT best seller list data, process data into topBooksByList
         // object, and pass that object to getOpenLibraryUrls function to call 
         // the OpenLibrary API (which will then update the topBooksByList object 
         // and setState for topBooksByList).
