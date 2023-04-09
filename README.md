@@ -3,7 +3,7 @@ More Books, Please is a web app that pulls the names of only children's best sel
 as options to the user. The user can click on any list name to see the top books in each NYT Best Sellers List. Each book includes an external link to either the book's Amazon page or the book's OpenLibrary page. 
 
 ## Live site
-http://melissalafranchise.com/more-books-please/index.html
+https://pulchrit.github.io/more-books-please/
 
 [![More Books, Please screen shot](more-books-please.png)](http://melissalafranchise.com/more-books-please/index.html)
 
