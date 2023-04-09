@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/more-books-please/static/css/main.6de1ec71.chunk.css",
+    "main.js": "/more-books-please/static/js/main.07b3d75d.chunk.js",
+    "main.js.map": "/more-books-please/static/js/main.07b3d75d.chunk.js.map",
+    "runtime~main.js": "/more-books-please/static/js/runtime~main.1708dd38.js",
+    "runtime~main.js.map": "/more-books-please/static/js/runtime~main.1708dd38.js.map",
+    "static/js/2.f634d624.chunk.js": "/more-books-please/static/js/2.f634d624.chunk.js",
+    "static/js/2.f634d624.chunk.js.map": "/more-books-please/static/js/2.f634d624.chunk.js.map",
+    "index.html": "/more-books-please/index.html",
+    "precache-manifest.358e2e0dd6a8a6b238a2d1dbc3cc800e.js": "/more-books-please/precache-manifest.358e2e0dd6a8a6b238a2d1dbc3cc800e.js",
+    "service-worker.js": "/more-books-please/service-worker.js",
+    "static/css/main.6de1ec71.chunk.css.map": "/more-books-please/static/css/main.6de1ec71.chunk.css.map",
+    "static/media/Header.css": "/more-books-please/static/media/books_transparent.80fec4d7.png"
+  }
+}
